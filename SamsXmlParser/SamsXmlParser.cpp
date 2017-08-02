@@ -51,7 +51,7 @@ namespace SamsXmlParser
 		std::string name = "";
 		std::string param = "";
 		XmlBlock* xml = new XmlBlock();
-		while (stream.get(c) && !endOfBlock)
+		while (!endOfBlock && stream.get(c))
 		{
 			// Check if its a comment
 			if (secondChar && c == '!')
@@ -84,21 +84,23 @@ namespace SamsXmlParser
 			{
 				switch (c)
 				{
-				case '<':
-					if (!parseBlock(stream, *xml))
-						endOfBlock = true;
+				case '<': // start of a tag
+					if (!parseBlock(stream, *xml)) // returns false if it's a closing tag
+						endOfBlock = true; // closing tag, so mark the end of the block
 					break;
 				case '\n':
 					break;
 				case '\t':
 					break;
 				default:
-					param += c;
+					param += c; // Not part of a tag or whitespace so add to the param.
 					break;
 				}
 			}
 			secondChar = false;
 		}
+
+		// Processed the block, so can now add the block to it's parent.
 		xml->SetParam(param);
 		parentBlock.AddChild(xml);
 	}

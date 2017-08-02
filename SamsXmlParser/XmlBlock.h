@@ -14,11 +14,13 @@ namespace SamsXmlParser
 		std::vector<XmlBlock*> children;
 		std::string param;
 
+		XmlBlock* parent;
+
 		int numberOfChildren;
 
 	public:
 		void SetName(const std::string& pName) { name = pName; }
-		void AddChild(XmlBlock* pChild) { children.push_back(pChild); numberOfChildren++; }
+		void AddChild(XmlBlock* pChild) { children.push_back(pChild); numberOfChildren++; pChild->SetParent(this); }
 		void SetParam(const std::string& pParam) { param = pParam; }
 
 		const std::string& GetName() const { return name; }
@@ -27,6 +29,10 @@ namespace SamsXmlParser
 
 		const XmlBlock* GetChild(const std::string& name);
 		const XmlBlock* GetChild(const int index);
+		const XmlBlock* GetParent() { return parent; }
+
+	protected:
+		void SetParent(XmlBlock* pParent) { parent = pParent; }
 
 	};
 }
