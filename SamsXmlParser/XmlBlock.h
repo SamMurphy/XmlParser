@@ -30,6 +30,7 @@ namespace SamsXmlParser
 		const XmlBlock* GetChild(const std::string& name);
 		const XmlBlock* GetChild(const int index);
 		const XmlBlock* GetParent() { return parent; }
+		const int GetNumberOfChildren() { return numberOfChildren; }
 
 	protected:
 		void SetParent(XmlBlock* pParent) { parent = pParent; }

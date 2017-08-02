@@ -21,6 +21,13 @@ int main()
 	// Get data from the parsed object
 	std::cout << xml->GetName().c_str() << std::endl;
 
+	for each (SamsXmlParser::XmlBlock* xmlBlock in xml->GetChildren())
+	{
+		std::cout << "Name: " << xmlBlock->GetName().c_str() << std::endl;
+		std::cout << "Param: " << xmlBlock->GetParam().c_str() << std::endl;
+		std::cout << "Chidren: " << xmlBlock->GetNumberOfChildren() << std::endl;
+	}
+
 
 	std::cout << "-----------------------------------------" << std::endl;
 
