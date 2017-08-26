@@ -7,7 +7,7 @@ int main()
 	std::cout << "--- XML PARSER TEST ---" << std::endl;
 
 
-	std::string filePath = "C:/Users/sam-m/Documents/GitHub/XmlParser/Debug/test.xml";
+	std::string filePath = "D:/Users/sam/Documents/GitHub/XmlParser/Debug/test.xml";
 
 	std::cout << "Trying to read " << filePath.c_str() << std::endl;
 	
@@ -24,7 +24,7 @@ int main()
 	for each (SamsXmlParser::XmlBlock* xmlBlock in xml->GetChildren())
 	{
 		std::cout << "Name: " << xmlBlock->GetName().c_str() << std::endl;
-		std::cout << "Param: " << xmlBlock->GetParam().c_str() << std::endl;
+		std::cout << "Param: " << xmlBlock->GetParameter().c_str() << std::endl;
 		std::cout << "Chidren: " << xmlBlock->GetNumberOfChildren() << std::endl;
 	}
 

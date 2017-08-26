@@ -12,7 +12,7 @@ namespace SamsXmlParser
 	private:
 		std::string name;
 		std::vector<XmlBlock*> children;
-		std::string param;
+		std::string parameter;
 
 		XmlBlock* parent;
 
@@ -21,11 +21,11 @@ namespace SamsXmlParser
 	public:
 		void SetName(const std::string& pName) { name = pName; }
 		void AddChild(XmlBlock* pChild) { children.push_back(pChild); numberOfChildren++; pChild->SetParent(this); }
-		void SetParam(const std::string& pParam) { param = pParam; }
+		void SetParam(const std::string& pParam) { parameter = pParam; }
 
 		const std::string& GetName() const { return name; }
 		const std::vector<XmlBlock*> GetChildren() const { return children; }
-		const std::string& GetParam() const { return param; }
+		const std::string& GetParameter() const { return parameter; }
 
 		const XmlBlock* GetChild(const std::string& name);
 		const XmlBlock* GetChild(const int index);

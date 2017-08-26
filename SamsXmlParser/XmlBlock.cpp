@@ -5,7 +5,7 @@
 namespace SamsXmlParser
 {
 
-	XmlBlock::XmlBlock() : name(""), children(), param(""), numberOfChildren(0)
+	XmlBlock::XmlBlock() : name(""), children(), parameter(""), numberOfChildren(0)
 	{
 	}
 

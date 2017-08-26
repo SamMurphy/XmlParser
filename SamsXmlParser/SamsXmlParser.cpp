@@ -92,6 +92,9 @@ namespace SamsXmlParser
 					break;
 				case '\t':
 					break;
+				case ' ':
+					if (param == "")
+						break;
 				default:
 					param += c; // Not part of a tag or whitespace so add to the param.
 					break;
